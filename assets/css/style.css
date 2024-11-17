@@ -1,0 +1,99 @@
+form {
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px auto;
+    max-width: 500px;
+    padding: 5px;
+    position: relative;
+}
+
+form input,
+form label {
+    box-sizing: border-box;
+    margin: 5px 0 0;
+    width: 100%;
+}
+
+form input[type="button"],
+form input[type="submit"] {
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+    display: block;
+    margin: 10px auto;
+    padding: 5px 10px;
+    width: 90%;
+}
+
+form input {
+    margin: 5px 0;
+}
+
+form input[type="button"]:hover,
+form input[type="submit"]:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px black;
+}
+
+canvas {
+    border: 1px solid black;
+    display: block;
+    margin: 0 auto;
+    max-height: 450px;
+    max-width: 100%;
+}
+
+details {
+    border: 1px solid black;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: 10px 0;
+    padding: 5px;
+    width: 100%;
+}
+
+#colors {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+}
+
+#colors .color {
+    display: block;
+    height: 30px;
+    margin: 0;
+    width: 30px;
+    z-index: 5;
+}
+
+#colors li {
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    margin: 10px;
+    overflow: hidden;
+    width: 60px;
+}
+
+#colors li input {
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    width: 30px;
+}
+
+#generations {
+    background-color: white;
+    border: 1px solid black;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5px 10px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
