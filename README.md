@@ -1,5 +1,7 @@
 # GitHub Style Avatar Generator
 
+This project is hosted on GitHub Pages. You can view it [here](https://gijs-d.github.io/GitHub-Style-Avatar-Generator/).
+
 ## Description
 
 This project creates dynamic GitHub-style avatars using a grid of colored blocks on an HTML canvas. Users can customize the number of blocks, their sizes, colors, and other options through an interactive form. The generated avatar can also be saved as an image.
@@ -37,6 +39,8 @@ To get started with the Multi-Monitor Background Creator, follow these steps:
 3. Click the "Generate" button to create your avatar.
 
 4. Click the "Save" button to download your avatar as a PNG image.
+
+[![GitHub Pages](https://gijs-d.github.io/GitHub-Style-Avatar-Generator/)](https://gijs-d.github.io/GitHub-Style-Avatar-Generator/)
 
 ## Screenshots
 
