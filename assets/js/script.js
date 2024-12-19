@@ -6,7 +6,8 @@ const options = {
     size: 100,
     border: 50,
     backgroundColor: '#ffffff',
-    colors: ['#ffffff']
+    colors: ['#ffffff'],
+    changeColors: true,
 };
 let generations = 0;
 
@@ -20,23 +21,28 @@ function init() {
     document.querySelector('form').addEventListener('input', handleInput);
     document.querySelector('#save').addEventListener('click', saveImg);
     document.querySelector('#addColor').addEventListener('click', addColor);
-    document.querySelector('#addRandomColor').addEventListener('click', addNewRandomColor);
+    document.querySelector('#addRandomColor').addEventListener('click', addRandomColorAndPrint);
     genGrid();
 }
 
-function addNewRandomColor() {
+function addRandomColorAndPrint() {
     addRandomColor();
     printColors();
 }
 
 function addRandomColor() {
-    const randomHex = () => Math.floor(Math.random() * 220).toString(16).padStart(2, '0');
+    const randomHex = () =>
+        Math.floor(Math.random() * 256)
+            .toString(16)
+            .padStart(2, '0');
     options.colors.push(`#${randomHex()}${randomHex()}${randomHex()}`);
 }
 
 function addColor() {
     const color = document.querySelector('#newColor').value;
-    if (options.colors.includes(color)) { return; }
+    if (options.colors.includes(color)) {
+        return;
+    }
     options.colors.push(color);
     printColors();
 }
@@ -48,9 +54,13 @@ function deleteColor(e) {
 }
 
 function handleInput(e) {
-    if (options[e.target.id] == undefined) { return; }
+    if (options[e.target.id] == undefined) {
+        return;
+    }
     if (e.target.id == 'backgroundColor') {
         options[e.target.id] = e.target.value;
+    } else if (e.target.id == 'changeColors') {
+        options[e.target.id] = e.target.checked;
     } else {
         options[e.target.id] = Number(e.target.value);
     }
@@ -59,33 +69,49 @@ function handleInput(e) {
 
 function setInputs() {
     for (const key in options) {
-        if (key != 'colors') {
+        if (key != 'colors' && key != 'changeColors') {
             document.querySelector(`#${key}`).value = options[key];
+        }
+        if (key == 'changeColors') {
+            document.querySelector(`#${key}`).checked = options[key];
         }
     }
     printColors();
 }
 
 function printColors() {
-    document.querySelector('#colors').innerHTML = options.colors.map(color => `
-  <li id="c-${color.slice(1)}">
-    <span class="color" style="background-color:${color}"></span>
-    <input type="button" value="x" class="delete">
-  </li>
-    `).join('');
-    document.querySelectorAll('#colors .delete').forEach(d => d.addEventListener('click', deleteColor));
+    document.querySelector('#colors').innerHTML = options.colors
+        .map(
+            color => `
+            <li id="c-${color.slice(1)}">
+                <span class="color" style="background-color:${color}"></span>
+                <input type="button" value=" " class="delete">
+            </li>
+            `
+        )
+        .join('');
+    document
+        .querySelectorAll('#colors .delete')
+        .forEach(d => d.addEventListener('click', deleteColor));
 }
 
 function saveImg() {
     const dataURL = canvas.toDataURL('image/png');
     const link = document.createElement('a');
     link.href = dataURL;
-    link.download = 'canvas_image.png';
+    link.download = 'avatar.png';
     link.click();
 }
 
 function genGrid(e) {
-    if (e) { e.preventDefault(); }
+    if (e) {
+        e.preventDefault();
+    }
+    if (options.changeColors) {
+        options.colors = [options.backgroundColor];
+        addRandomColor();
+        addRandomColorAndPrint();
+    }
     document.querySelector('#generations').innerText = ++generations;
     canvas.width = options.blocksX * options.size + 2 * options.border;
     canvas.height = options.blocksY * options.size + 2 * options.border;
@@ -102,7 +128,11 @@ function genGrid(e) {
 }
 
 function makeRect(i, j, color) {
-    const size = 100;
     ctx.fillStyle = color;
-    ctx.fillRect(i * options.size + options.border, j * options.size + options.border, size, size);
+    ctx.fillRect(
+        i * options.size + options.border,
+        j * options.size + options.border,
+        options.size,
+        options.size
+    );
 }

@@ -1,46 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=, initial-scale=1.0" />
+        <title>GitHub Style Avatar Generator</title>
+        <link rel="icon" href="assets/media/favicon.png" />
+        <link rel="stylesheet" href="assets/css/style.css" />
+    </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=, initial-scale=1.0">
-  <title>GitHub Style Avatar Generator</title>
-  <link rel="icon" href="assets/media/favicon.png">
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
+    <body>
+        <main>
+            <canvas></canvas>
+            <form>
+                <span id="generations">0</span>
+                <details>
+                    <summary>Blocks</summary>
+                    <br />
+                    <label for="blocksX">Nr of blocks x:</label>
+                    <input type="number" name="blocksX" id="blocksX" min="1" />
+                    <label for="blocksY">Nr of blocks y:</label>
+                    <input type="number" name="blocksY" id="blocksY" min="1" />
+                    <label for="size">Width and height of blocks:</label>
+                    <input type="number" name="size" id="size" min="1" />
+                </details>
+                <details>
+                    <summary>
+                        <div>
+                            <span>Block colors</span>
 
-<body>
-  <main>
-    <canvas></canvas>
-    <form>
-      <span id="generations">0</span>
-      <details>
-        <summary>Blocks</summary>
-        <br>
-        <label for="blocksX">Nr of blocks x:</label>
-        <input type="number" name="blocksX" id="blocksX" min="1">
-        <label for="blocksY">Nr of blocks y:</label>
-        <input type="number" name="blocksY" id="blocksY" min="1">
-        <label for="size">Width and height of blocks:</label>
-        <input type="number" name="size" id="size" min="1">
-      </details>
-      <details>
-        <summary>Block colors</summary>
-        <ul id="colors"> </ul>
-        <label for="addColor">Add color:</label>
-        <input type="color" id="newColor">
-        <input type="button" value="Add" id="addColor">
-        <input type="button" value="Add random" id="addRandomColor">
-      </details>
-      <label for="border">Border:</label>
-      <input type="number" name="border" id="border" min="0">
-      <label for="backgroundColor">Background color:</label>
-      <input type="color" name="backgroundColor" id="backgroundColor">
-      <input type="submit" value="Generate">
-      <input type="button" value="Save" id="save">
-    </form>
-  </main>
-  <script src="./assets/js/script.js"></script>
-</body>
-
+                            <label for="changeColors"
+                                ><input type="checkbox" id="changeColors" /> Change colors
+                            </label>
+                        </div>
+                    </summary>
+                    <ul id="colors"></ul>
+                    <label for="addColor">Add color:</label>
+                    <input type="color" id="newColor" />
+                    <input type="button" value="Add" id="addColor" />
+                    <input type="button" value="Add random" id="addRandomColor" />
+                </details>
+                <label for="border">Border:</label>
+                <input type="number" name="border" id="border" min="0" />
+                <label for="backgroundColor">Background color:</label>
+                <input type="color" name="backgroundColor" id="backgroundColor" />
+                <input type="submit" value="Generate" />
+                <input type="button" value="Save" id="save" />
+            </form>
+        </main>
+        <script src="./assets/js/script.js"></script>
+    </body>
 </html>

@@ -1,5 +1,29 @@
+:root {
+    --background: white;
+    --background-box: #00000005;
+    --background-btn: white;
+    --background-btn-hover: #00000010;
+    --background-details: #00000005;
+    --border: thin solid #00000023;
+    --border-input: thin solid #00000053;
+    --color: #111;
+    --shadow: 0 0 5px lightgrey;
+    --shadow-hover: 0 0 10px lightgrey;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 form {
-    border: 1px solid black;
+    background-color: var(--background-box);
+    border: var(--border);
     border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -9,37 +33,44 @@ form {
     position: relative;
 }
 
-form input,
-form label {
+input,
+label {
     box-sizing: border-box;
     margin: 5px 0 0;
     width: 100%;
 }
 
-form input[type="button"],
-form input[type="submit"] {
-    background-color: transparent;
-    border: 1px solid black;
+input {
+    background-color: var(--background-btn);
     border-radius: 5px;
-    box-shadow: 0 0 5px black;
+    color: var(--color);
+    margin: 5px 0;
+    padding: 5px;
+    border: var(--border-input);
+    font-size: 1rem;
+}
+
+input[type='button'],
+input[type='submit'] {
+    box-shadow: var(--shadow);
     display: block;
     margin: 10px auto;
     padding: 5px 10px;
     width: 90%;
+    cursor: pointer;
 }
 
-form input {
-    margin: 5px 0;
+input[type='color'] {
+    cursor: pointer;
 }
 
-form input[type="button"]:hover,
-form input[type="submit"]:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0 15px black;
+input:hover {
+    background-color: var(--background-btn-hover);
+    box-shadow: var(--shadow-hover);
 }
 
 canvas {
-    border: 1px solid black;
+    border: var(--border);
     display: block;
     margin: 0 auto;
     max-height: 450px;
@@ -47,12 +78,41 @@ canvas {
 }
 
 details {
-    border: 1px solid black;
+    background-color: var(--background-details);
+    border: var(--border);
     border-radius: 5px;
     box-sizing: border-box;
     margin: 10px 0;
-    padding: 5px;
     width: 100%;
+}
+
+details[open] {
+    padding: 5px;
+}
+
+summary {
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+summary:hover {
+    background-color: var(--background-btn-hover);
+}
+
+summary div {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    float: right;
+    justify-content: space-between;
+    width: calc(100% - 1rem);
+}
+
+summary label,
+summary label input {
+    margin: 0;
+    width: unset;
 }
 
 #colors {
@@ -61,35 +121,42 @@ details {
     list-style: none;
     margin: 0;
     padding: 10px;
-}
-
-#colors .color {
-    display: block;
-    height: 30px;
-    margin: 0;
-    width: 30px;
-    z-index: 5;
+    width: 100%;
 }
 
 #colors li {
-    border: 1px solid black;
+    border: 1px solid var(--color);
     border-radius: 10px;
     display: flex;
     margin: 10px;
     overflow: hidden;
-    width: 60px;
+    width: 90px;
 }
 
 #colors li input {
-    height: 30px;
+    background: no-repeat url('../media/icon-cross.svg') center center;
+    background-size: 60% 70%;
+    height: 40px;
     margin: 0;
     padding: 0;
     width: 30px;
 }
 
+#colors li input:hover {
+    background-size: 80% 80%;
+}
+
+#colors .color {
+    display: block;
+    height: 40px;
+    margin: 0;
+    width: 60px;
+    z-index: 5;
+}
+
 #generations {
-    background-color: white;
-    border: 1px solid black;
+    background-color: var(--background);
+    border: thin solid grey;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
     padding: 5px 10px;
