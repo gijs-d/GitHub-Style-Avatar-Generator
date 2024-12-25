@@ -12,6 +12,7 @@
 }
 
 html {
+    font-size: 1rem;
     font-size: 16px;
 }
 
@@ -42,26 +43,28 @@ label {
 
 input {
     background-color: var(--background-btn);
+    border: var(--border-input);
     border-radius: 5px;
     color: var(--color);
+    font-size: 1rem;
     margin: 5px 0;
     padding: 5px;
-    border: var(--border-input);
-    font-size: 1rem;
 }
 
 input[type='button'],
 input[type='submit'] {
     box-shadow: var(--shadow);
+    cursor: pointer;
     display: block;
     margin: 10px auto;
     padding: 5px 10px;
     width: 90%;
-    cursor: pointer;
 }
 
 input[type='color'] {
     cursor: pointer;
+    height: 32px;
+    padding: 3px;
 }
 
 input:hover {
@@ -92,8 +95,8 @@ details[open] {
 
 summary {
     border-radius: 5px;
-    padding: 10px;
     cursor: pointer;
+    padding: 10px;
 }
 
 summary:hover {
@@ -106,7 +109,7 @@ summary div {
     flex-wrap: wrap;
     float: right;
     justify-content: space-between;
-    width: calc(100% - 1rem);
+    width: calc(100% - 1.06rem);
 }
 
 summary label,

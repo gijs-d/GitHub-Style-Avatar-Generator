@@ -1,6 +1,6 @@
 # GitHub Style Avatar Generator
 
-This project is hosted on GitHub Pages. You can view it [here](https://gijs-d.github.io/GitHub-Style-Avatar-Generator/).
+This project is hosted on [GitHub Pages](https://gijs-d.github.io/GitHub-Style-Avatar-Generator/).
 
 ## Description
 
@@ -20,7 +20,7 @@ This project creates dynamic GitHub-style avatars using a grid of colored blocks
 
 ## Getting Started
 
-To get started with the Multi-Monitor Background Creator, follow these steps:
+To run the GitHub Style Avatar Generator locally, follow these steps:
 
 1. Clone the repository or download the files.
 
@@ -40,10 +40,11 @@ To get started with the Multi-Monitor Background Creator, follow these steps:
 
 4. Click the "Save" button to download your avatar as a PNG image.
 
-[![GitHub Pages](https://gijs-d.github.io/GitHub-Style-Avatar-Generator/)](https://gijs-d.github.io/GitHub-Style-Avatar-Generator/)
-
 ## Screenshots
 
-![Settings Collapsed](images/screeenShot1.png)
-
-![All Settings Open](images/screenShot2.png)
+![blocks](screenshots/blocks.gif)
+![colors](screenshots/colors.gif)
+![border](screenshots/border.gif)
+![bg](screenshots/bg.gif)
+![generate](screenshots/generate.gif)
+![save](screenshots/save.gif)

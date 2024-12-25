@@ -25,9 +25,13 @@ function init() {
     genGrid();
 }
 
-function addRandomColorAndPrint() {
+function addRandomColorAndPrint(reset) {
     addRandomColor();
     printColors();
+    if (reset) {
+        options.changeColors = false;
+        document.querySelector('#changeColors').checked = false;
+    }
 }
 
 function addRandomColor() {
@@ -43,6 +47,8 @@ function addColor() {
     if (options.colors.includes(color)) {
         return;
     }
+    options.changeColors = false;
+    document.querySelector('#changeColors').checked = false;
     options.colors.push(color);
     printColors();
 }
@@ -51,6 +57,8 @@ function deleteColor(e) {
     const color = e.target.closest('li').id.split('-')[1];
     options.colors = options.colors.filter(c => c.slice(1) != color);
     printColors();
+    options.changeColors = false;
+    document.querySelector('#changeColors').checked = false;
 }
 
 function handleInput(e) {
